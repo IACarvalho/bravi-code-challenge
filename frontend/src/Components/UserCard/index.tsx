@@ -1,4 +1,5 @@
 import { Trash, Pencil, PlusCircle } from "phosphor-react"
+import { Link } from "react-router-dom";
 
 import "./UserCard.scss"
 
@@ -127,13 +128,14 @@ export function UserCard({ userID, name, contacts }: Props) {
               )
             })}
             <span>
-              <PlusCircle 
-                color="#099420" 
-                size={32} 
-                alt="Adicionar novo contato"
-                id="create-contact-button"
-                onClick={handleCreateContactClick}
-              />
+              <Link to="/new-contact">
+                <PlusCircle 
+                  color="#099420" 
+                  size={32} 
+                  alt="Adicionar novo contato"
+                  id="create-contact-button"
+                />
+              </Link>
             </span>
         </div>
       </div>

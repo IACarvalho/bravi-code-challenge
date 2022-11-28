@@ -1,4 +1,5 @@
 import { PlusCircle } from "phosphor-react"
+import { Link } from "react-router-dom";
 
 import { UserCard } from "../../Components/UserCard";
 import "./User.module.scss"
@@ -21,12 +22,9 @@ export function User() {
       <form>
         <input type="text" id="user-id"/>
         <span className="search-button">Buscar</span>
-        <span id="create-user-button">Cadastrar</span>
+        <Link to="/new-user"><span id="create-user-button">Cadastrar</span></Link>
       </form>
       <div id="users">
-        <UserCard userID={1} name="Fulano de tal" contacts={contacts}/>
-        <UserCard userID={1} name="Fulano de tal" contacts={contacts}/>
-        <UserCard userID={1} name="Fulano de tal" contacts={contacts}/>
         <UserCard userID={1} name="Fulano de tal" contacts={contacts}/>
         <UserCard userID={1} name="Fulano de tal" contacts={contacts}/>
 
