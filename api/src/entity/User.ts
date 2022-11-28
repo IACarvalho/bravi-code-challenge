@@ -10,9 +10,6 @@ class User {
 
   @Column()
   name: string
-
-  @OneToMany(() => Contact, contact => contact.userId)
-  contact: Contact[]
 }
 
 export { User }

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateNewUser, DeleteUserById, FindUserById, UpdateUserById } from "../models/UserModel";
+import { CreateNewUser, DeleteUserById, FinadAllUsers, FindUserById, UpdateUserById } from "../models/UserModel";
 
 class UserController {
   async Create(request: Request, response: Response){
@@ -17,6 +17,17 @@ class UserController {
     return response.status(201).json({
       success: `Created user id: ${id}`
     })
+  }
+
+  async FindAll(reqeust: Request, response: Response) {
+    
+    let error: string
+    const users = await FinadAllUsers().catch(er => error = er)
+    
+    if(error)
+      return response.status(400).json({error})
+    
+      return response.status(200).json(users)
   }
 
   async FindById(request: Request, response: Response) {

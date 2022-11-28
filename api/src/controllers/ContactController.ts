@@ -1,6 +1,5 @@
 import { Request, Response } from "express"
-import { Contact } from "../entity/Contact"
-import { CreateContact, DeleteContact, FindContact, UpdateContact } from "../models/ContactModel"
+import { CreateContact, DeleteContact, FindContactByUserId, UpdateContact } from "../models/ContactModel"
 
 
 export class ContactController {
@@ -26,18 +25,19 @@ export class ContactController {
     })
   }
 
-  async Find(request: Request, response: Response) {
-    const { id } = request.params
-
+  async FindByUserId(request: Request, response: Response) {
+    const {userId} = request.params
+    
     let error: string
 
-    const contact: Contact = await FindContact(Number(id))
-        .catch(er => error = er)
+    const contacts = await FindContactByUserId(Number(userId))
+      .catch(er => error = er)
 
     if(error)
       return response.status(400).json({error})
     
-    return response.status(200).json(contact)
+    return response.status(200).json(contacts)
+
   }
 
   async Update(request: Request, response: Response) {
