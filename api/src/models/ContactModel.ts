@@ -22,18 +22,13 @@ export async function  CreateContact(phoneNumber: string, email: string, whatsap
   await contactRepository.manager.save(contact)
 
   return contact.id
-
-
 }
 
-export async function FindContact(id: number): Promise<Contact> {
-  
-  const contact = await contactRepository.findOneBy({id: id})
+export async function FindContactByUserId(userId: number): Promise<object> {
+  const contacts = await contactRepository.manager.find(Contact)
+  const userContacts = contacts.filter(contact => contact.userId === userId)
 
-  if(!contact)
-    throw "Contact not found"
-  
-  return contact
+  return userContacts
 }
 
 export async function  UpdateContact(id: number, phoneNumber: string = null, email: string = null, whatsappNumber: string = null): Promise<Contact> {

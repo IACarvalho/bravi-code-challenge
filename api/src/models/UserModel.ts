@@ -15,6 +15,11 @@ async function CreateNewUser(name: string): Promise<number>{
 
 }
 
+export async function FinadAllUsers(): Promise<object> {
+  const users = await userRepository.manager.find(User)
+  return users
+}
+
 async function FindUserById(id: number): Promise<object> {
 
   const user = await userRepository.findOneBy({

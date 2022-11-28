@@ -1,9 +1,7 @@
 import {
   Column,
   Entity,
-  PrimaryGeneratedColumn,
-  ManyToOne,
-  JoinColumn,
+  PrimaryGeneratedColumn
 } from "typeorm"
 import { User } from "./User"
 
@@ -21,7 +19,6 @@ export class Contact {
   @Column({ nullable: true })
   whatsappNumber: string
 
-  @ManyToOne(() => User, (user) => user.id)
-  @JoinColumn()
+  @Column()
   userId: number
 }
