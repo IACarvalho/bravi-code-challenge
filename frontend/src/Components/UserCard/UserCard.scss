@@ -20,16 +20,22 @@
     
     
   }
-  .button-group{
+  .contact-list{
     display: flex;
     justify-content: center;
-    align-items: center;
 
-    .user-card-button {
-      cursor: pointer;
-      margin: 0 0.1rem;
-      :hover {
-        filter: saturate(120%);
+    .button-group{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 1rem;
+  
+      .user-card-button {
+        cursor: pointer;
+        margin: 0 0.2rem;
+        :hover {
+          filter: saturate(120%);
+        }
       }
     }
   }
@@ -38,6 +44,7 @@
     margin-left: 93%;
     bottom: 0;
     cursor: pointer;
+    width: 32px;
       :hover {
         filter: saturate(120%);
       }
